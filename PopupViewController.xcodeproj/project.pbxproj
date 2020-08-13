@@ -13,12 +13,12 @@
 		1D9CFDD324DEA129009DD2D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9CFDD124DEA129009DD2D1 /* Main.storyboard */; };
 		1D9CFDD524DEA12A009DD2D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D9CFDD424DEA12A009DD2D1 /* Assets.xcassets */; };
 		1D9CFDD824DEA12A009DD2D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9CFDD624DEA12A009DD2D1 /* LaunchScreen.storyboard */; };
-		1D9CFDE124DEA19E009DD2D1 /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9CFDE024DEA19E009DD2D1 /* PopupPresentationController.swift */; };
-		1DD10F4A24E3E087004D8B03 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F4924E3E087004D8B03 /* PopupController.swift */; };
-		1DD10F4C24E3E16D004D8B03 /* PopupApperanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F4B24E3E16D004D8B03 /* PopupApperanceProtocol.swift */; };
-		1DD10F5024E415FF004D8B03 /* PopupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F4F24E415FF004D8B03 /* PopupProtocol.swift */; };
 		1DD10F5424E4E093004D8B03 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F5324E4E093004D8B03 /* TestViewController.swift */; };
 		1DD10F5624E4E0C7004D8B03 /* UIChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F5524E4E0C7004D8B03 /* UIChain.swift */; };
+		1DD10F5C24E50892004D8B03 /* PopupApperanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F5824E50892004D8B03 /* PopupApperanceProtocol.swift */; };
+		1DD10F5D24E50892004D8B03 /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F5924E50892004D8B03 /* PopupPresentationController.swift */; };
+		1DD10F5E24E50892004D8B03 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F5A24E50892004D8B03 /* PopupController.swift */; };
+		1DD10F5F24E50892004D8B03 /* PopupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD10F5B24E50892004D8B03 /* PopupProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +30,12 @@
 		1D9CFDD424DEA12A009DD2D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D9CFDD724DEA12A009DD2D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D9CFDD924DEA12A009DD2D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D9CFDE024DEA19E009DD2D1 /* PopupPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPresentationController.swift; sourceTree = "<group>"; };
-		1DD10F4924E3E087004D8B03 /* PopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
-		1DD10F4B24E3E16D004D8B03 /* PopupApperanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupApperanceProtocol.swift; sourceTree = "<group>"; };
-		1DD10F4F24E415FF004D8B03 /* PopupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupProtocol.swift; sourceTree = "<group>"; };
 		1DD10F5324E4E093004D8B03 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		1DD10F5524E4E0C7004D8B03 /* UIChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIChain.swift; sourceTree = "<group>"; };
+		1DD10F5824E50892004D8B03 /* PopupApperanceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupApperanceProtocol.swift; sourceTree = "<group>"; };
+		1DD10F5924E50892004D8B03 /* PopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupPresentationController.swift; sourceTree = "<group>"; };
+		1DD10F5A24E50892004D8B03 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		1DD10F5B24E50892004D8B03 /* PopupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +52,7 @@
 		1D9CFDBF24DEA129009DD2D1 = {
 			isa = PBXGroup;
 			children = (
+				1DD10F5724E50892004D8B03 /* PopupController */,
 				1D9CFDCA24DEA129009DD2D1 /* PopupViewController */,
 				1D9CFDC924DEA129009DD2D1 /* Products */,
 			);
@@ -68,7 +69,6 @@
 		1D9CFDCA24DEA129009DD2D1 /* PopupViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1D9CFDDF24DEA157009DD2D1 /* PopupController */,
 				1D9CFDCB24DEA129009DD2D1 /* AppDelegate.swift */,
 				1D9CFDCD24DEA129009DD2D1 /* SceneDelegate.swift */,
 				1D9CFDCF24DEA129009DD2D1 /* ViewController.swift */,
@@ -82,13 +82,13 @@
 			path = PopupViewController;
 			sourceTree = "<group>";
 		};
-		1D9CFDDF24DEA157009DD2D1 /* PopupController */ = {
+		1DD10F5724E50892004D8B03 /* PopupController */ = {
 			isa = PBXGroup;
 			children = (
-				1D9CFDE024DEA19E009DD2D1 /* PopupPresentationController.swift */,
-				1DD10F4F24E415FF004D8B03 /* PopupProtocol.swift */,
-				1DD10F4B24E3E16D004D8B03 /* PopupApperanceProtocol.swift */,
-				1DD10F4924E3E087004D8B03 /* PopupController.swift */,
+				1DD10F5824E50892004D8B03 /* PopupApperanceProtocol.swift */,
+				1DD10F5924E50892004D8B03 /* PopupPresentationController.swift */,
+				1DD10F5A24E50892004D8B03 /* PopupController.swift */,
+				1DD10F5B24E50892004D8B03 /* PopupProtocol.swift */,
 			);
 			path = PopupController;
 			sourceTree = "<group>";
@@ -164,15 +164,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DD10F4A24E3E087004D8B03 /* PopupController.swift in Sources */,
-				1D9CFDE124DEA19E009DD2D1 /* PopupPresentationController.swift in Sources */,
+				1DD10F5E24E50892004D8B03 /* PopupController.swift in Sources */,
 				1DD10F5424E4E093004D8B03 /* TestViewController.swift in Sources */,
-				1DD10F5024E415FF004D8B03 /* PopupProtocol.swift in Sources */,
+				1DD10F5F24E50892004D8B03 /* PopupProtocol.swift in Sources */,
 				1D9CFDD024DEA129009DD2D1 /* ViewController.swift in Sources */,
 				1D9CFDCC24DEA129009DD2D1 /* AppDelegate.swift in Sources */,
-				1DD10F4C24E3E16D004D8B03 /* PopupApperanceProtocol.swift in Sources */,
 				1D9CFDCE24DEA129009DD2D1 /* SceneDelegate.swift in Sources */,
+				1DD10F5C24E50892004D8B03 /* PopupApperanceProtocol.swift in Sources */,
 				1DD10F5624E4E0C7004D8B03 /* UIChain.swift in Sources */,
+				1DD10F5D24E50892004D8B03 /* PopupPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
