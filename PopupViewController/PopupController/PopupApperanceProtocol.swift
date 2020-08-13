@@ -1,15 +1,32 @@
 //
-//  PopupAnimation.swift
+//  PopupApperanceConfig.swift
 //  PopupViewController
 //
-//  Created by 郑志强 on 2020/8/8.
+//  Created by 郑志强 on 2020/8/12.
 //  Copyright © 2020 郑志强. All rights reserved.
 //
 
 import UIKit
 
+public protocol PopupApperanceProtocol {
+    var showAnimation: UIViewControllerAnimatedTransitioning? { get }
+    var dismissAnimation: UIViewControllerAnimatedTransitioning? { get }
+}
 
-class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+
+class PopupApperance: PopupApperanceProtocol {
+
+    var showAnimation: UIViewControllerAnimatedTransitioning? {
+        return PopupShowAnimation()
+    }
+
+    var dismissAnimation: UIViewControllerAnimatedTransitioning? {
+        return PopupDismissAnimation()
+    }
+}
+
+
+fileprivate class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransitioning {
 
     public var duration: TimeInterval = 0.3
         
@@ -36,18 +53,18 @@ class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 
-class PopupDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+fileprivate class PopupDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     public var duration: TimeInterval = 0.2
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard let fromView = transitionContext.view(forKey: .from) else { return }
- 
+
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             fromView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             fromView.alpha = 0
