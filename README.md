@@ -1,4 +1,4 @@
-# ZZQCustomAlertView
+# PopupController
 
 view或者viewcontroller，只要遵循PopupProtocol代理，调用指定方法便可被弹出。弹出动画支持自定义
 
