@@ -52,7 +52,7 @@
 		1D9CFDBF24DEA129009DD2D1 = {
 			isa = PBXGroup;
 			children = (
-				1D9CFDCA24DEA129009DD2D1 /* PopupController */,
+				1D9CFDCA24DEA129009DD2D1 /* PopupViewController */,
 				1D9CFDC924DEA129009DD2D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1D9CFDCA24DEA129009DD2D1 /* PopupController */ = {
+		1D9CFDCA24DEA129009DD2D1 /* PopupViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1D9CFDDF24DEA157009DD2D1 /* PopupController */,
@@ -79,7 +79,7 @@
 				1D9CFDD624DEA12A009DD2D1 /* LaunchScreen.storyboard */,
 				1D9CFDD924DEA12A009DD2D1 /* Info.plist */,
 			);
-			path = PopupController;
+			path = PopupViewController;
 			sourceTree = "<group>";
 		};
 		1D9CFDDF24DEA157009DD2D1 /* PopupController */ = {
