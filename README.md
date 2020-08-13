@@ -16,7 +16,6 @@ class TestViewController: UIViewController, PopupProtocol
 ```
 let testVC = TestViewController()
 PopupController.show(testVC)
-
 ```
 
 3. 需要移除的时候调用dismiss方法
@@ -24,3 +23,5 @@ PopupController.show(testVC)
 ```
 PopupController.dismiss(self)
 ```
+
+4. 更多使用方法见demo
