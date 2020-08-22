@@ -8,6 +8,8 @@
 
 #if os(iOS)
 
+import UIKit
+
 public class PopupController: NSObject {
     
     private var apperance: PopupApperanceProtocol
@@ -43,22 +45,23 @@ public class PopupController: NSObject {
 
 extension PopupController: UIViewControllerTransitioningDelegate {
     
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let controller = PopupPresentationController(presentedViewController: presented, presenting: presenting)
         return controller
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return apperance.showAnimation
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return apperance.dismissAnimation
     }
 }
 
-private extension UIWindow {
-    static var key: UIWindow? {
+
+extension UIWindow {
+    public static var key: UIWindow? {
         if #available(iOS 13, *) {
             return UIApplication.shared.windows.first { $0.isKeyWindow }
         } else {

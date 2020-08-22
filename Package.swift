@@ -14,7 +14,8 @@ let package = Package(
     targets: [
         .target(
             name: "PopupController",
-            path: "Sources"
+            path: "Sources",
+            sources: ["PopupController"]
         ),
     ]
 )

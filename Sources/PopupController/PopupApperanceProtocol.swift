@@ -16,13 +16,17 @@ public protocol PopupApperanceProtocol {
 }
 
 
-class PopupApperance: PopupApperanceProtocol {
+public class PopupApperance: PopupApperanceProtocol {
 
-    var showAnimation: UIViewControllerAnimatedTransitioning? {
+    public init() {
+        
+    }
+    
+    public var showAnimation: UIViewControllerAnimatedTransitioning? {
         return PopupShowAnimation()
     }
 
-    var dismissAnimation: UIViewControllerAnimatedTransitioning? {
+    public var dismissAnimation: UIViewControllerAnimatedTransitioning? {
         return PopupDismissAnimation()
     }
 }
