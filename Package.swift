@@ -11,12 +11,9 @@ let package = Package(
             name: "PopupController",
             targets: ["PopupController"]),
     ],
-    dependencies: [
-    ],
     targets: [
         .target(
             name: "PopupController",
-            dependencies: [],
-            path: "Sources"),
+            dependencies: []),
     ]
 )

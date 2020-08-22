@@ -6,6 +6,8 @@
 //  Copyright © 2020 郑志强. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 
 public protocol PopupProtocol {
@@ -82,3 +84,5 @@ private extension UIView {
         return nil
     }
 }
+
+#endif

@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  PopupViewController
+//  PopupControllerDemo
 //
-//  Created by 郑志强 on 2020/8/8.
+//  Created by 郑志强 on 2020/8/22.
 //  Copyright © 2020 郑志强. All rights reserved.
 //
 

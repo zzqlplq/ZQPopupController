@@ -6,12 +6,12 @@
 //  Copyright © 2020 郑志强. All rights reserved.
 //
 
-import UIKit
+#if os(iOS)
 
-class PopupController: NSObject {
+public class PopupController: NSObject {
     
     private var apperance: PopupApperanceProtocol
-    
+
     required init(apperance: PopupApperanceProtocol) {
         self.apperance = apperance
     }
@@ -67,6 +67,7 @@ private extension UIWindow {
     }
 }
 
+#endif
 
 
 

@@ -6,6 +6,8 @@
 //  Copyright © 2020 郑志强. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 
 class PopupPresentationController: UIPresentationController {
@@ -44,3 +46,5 @@ class PopupPresentationController: UIPresentationController {
         }
     }
 }
+
+#endif

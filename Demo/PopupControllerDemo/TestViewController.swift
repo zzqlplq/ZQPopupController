@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupController
 
 class TestViewController: UIViewController, PopupProtocol {
 

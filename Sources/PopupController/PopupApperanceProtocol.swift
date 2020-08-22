@@ -6,6 +6,8 @@
 //  Copyright © 2020 郑志强. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 
 public protocol PopupApperanceProtocol {
@@ -75,3 +77,5 @@ fileprivate class PopupDismissAnimation: NSObject, UIViewControllerAnimatedTrans
         }
     }
 }
+
+#endif
