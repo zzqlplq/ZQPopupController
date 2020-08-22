@@ -14,6 +14,7 @@ let package = Package(
     targets: [
         .target(
             name: "PopupController",
-            dependencies: []),
+            path: "Sources"
+        ),
     ]
 )

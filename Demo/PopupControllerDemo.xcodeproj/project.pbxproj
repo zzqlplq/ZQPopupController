@@ -97,6 +97,8 @@
 			dependencies = (
 			);
 			name = PopupControllerDemo;
+			packageProductDependencies = (
+			);
 			productName = PopupControllerDemo;
 			productReference = 1DD1103A24F11CCD004D8B03 /* PopupControllerDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +127,8 @@
 				Base,
 			);
 			mainGroup = 1DD1103124F11CCD004D8B03;
+			packageReferences = (
+			);
 			productRefGroup = 1DD1103B24F11CCD004D8B03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
