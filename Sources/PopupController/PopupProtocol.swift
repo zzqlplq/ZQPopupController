@@ -10,23 +10,19 @@
 
 import UIKit
 
-public protocol PopupProtocol {
+public protocol PopupProtocol: class {
     var presentedViewController: UIViewController { get }
-    var offset: CGPoint { get }
 }
 
 
-extension PopupProtocol where Self: UIViewController {
+public extension PopupProtocol where Self: UIViewController {
     var presentedViewController: UIViewController {
         return self
     }
-    var offset: CGPoint {
-        return CGPoint(x: 0, y: 0)
-    }
 }
 
 
-extension PopupProtocol where Self: UIView {
+public extension PopupProtocol where Self: UIView {
 
     var presentedViewController: UIViewController {
         if let viewController = self.viewController() as? PopupProtocol {
@@ -35,6 +31,7 @@ extension PopupProtocol where Self: UIView {
             return PopupTempContainerViewController(contentView: self)
         }
     }
+    
     var offset: CGPoint {
         return CGPoint(x: 0, y: 0)
     }

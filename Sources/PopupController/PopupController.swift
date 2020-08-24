@@ -10,11 +10,11 @@
 
 import UIKit
 
-public class PopupController: NSObject {
+public class PopupController {
     
     private var apperance: PopupApperanceProtocol
 
-    required init(apperance: PopupApperanceProtocol) {
+    private init(apperance: PopupApperanceProtocol) {
         self.apperance = apperance
     }
     
@@ -43,18 +43,18 @@ public class PopupController: NSObject {
 }
 
 
-extension PopupController: UIViewControllerTransitioningDelegate {
+public extension PopupController: UIViewControllerTransitioningDelegate {
     
-    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let controller = PopupPresentationController(presentedViewController: presented, presenting: presenting)
         return controller
     }
     
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return apperance.showAnimation
     }
     
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return apperance.dismissAnimation
     }
 }

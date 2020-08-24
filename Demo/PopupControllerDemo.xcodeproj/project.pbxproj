@@ -17,6 +17,19 @@
 		1DD1106324F11FD4004D8B03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD1106224F11FD4004D8B03 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1D1408BC24F1384400717B18 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1DD1103A24F11CCD004D8B03 /* PopupControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopupControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD1103D24F11CCD004D8B03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +104,7 @@
 				1DD1103624F11CCD004D8B03 /* Sources */,
 				1DD1103724F11CCD004D8B03 /* Frameworks */,
 				1DD1103824F11CCD004D8B03 /* Resources */,
+				1D1408BC24F1384400717B18 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
