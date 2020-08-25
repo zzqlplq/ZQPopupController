@@ -10,7 +10,7 @@
 
 import UIKit
 
-final class PopupController: NSObject {
+class PopupController: NSObject {
     
     private var apperance: PopupApperanceProtocol
     

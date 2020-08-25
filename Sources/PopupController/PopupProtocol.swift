@@ -32,7 +32,7 @@ extension PopupProtocol where Self: UIView {
         }
     }
     
-    var offset: CGPoint {
+    public var offset: CGPoint {
         return CGPoint(x: 0, y: 0)
     }
 }

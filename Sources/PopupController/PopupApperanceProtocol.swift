@@ -15,6 +15,7 @@ public protocol PopupApperanceProtocol {
     var dismissAnimation: UIViewControllerAnimatedTransitioning? { get }
 }
 
+
 class PopupApperance: NSObject, PopupApperanceProtocol { }
 
 extension PopupApperanceProtocol {
