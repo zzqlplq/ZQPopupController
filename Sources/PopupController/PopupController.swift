@@ -12,32 +12,49 @@ import UIKit
 
 public class PopupController: NSObject {
     
-    private var apperance: PopupApperanceProtocol
+    private var apperance: PopupApperanceProtocol = PopupApperance()
     
-    required init(apperance: PopupApperanceProtocol) {
-        self.apperance = apperance
+    required init(apperance: PopupApperanceProtocol?) {
+        if let apperance = apperance {
+            self.apperance = apperance
+        }
     }
     
-    static func show(_ presented: PopupProtocol,
-                     presentingViewController: UIViewController? = UIWindow.key?.rootViewController,
-                     apperance: PopupApperanceProtocol = PopupApperance(),
+    /// 显示
+    /// - Parameters:
+    ///   - presented: 被弹出的视图
+    ///   - presentingViewController: 主动弹出的控制器，因为权限问题，默认为nil
+    ///   - apperance: 弹出的动画代理，因为权限问题，默认为nil
+    ///   - completion: 弹出完成的回调
+    
+    public static func show(_ presented: PopupProtocol,
+                     presentingViewController: UIViewController? = nil,
+                     apperance: PopupApperanceProtocol? = nil,
                      completion:(()-> Void)? = nil) {
         
         let controller = self.init(apperance: apperance)
-        let presentedViewController = presented.presentedViewController
+        let presentedViewController =  presented.presentedViewController
         presentedViewController.transitioningDelegate = controller
         presentedViewController.modalPresentationStyle = .custom
-        presentingViewController?.present(presentedViewController, animated: true, completion: completion)
+        
+        let presenting = presentingViewController ?? UIWindow.key?.rootViewController
+        presenting?.present(presentedViewController, animated: true, completion: completion)
     }
     
-    static func dismiss(_ presented: PopupProtocol,
-                        apperance: PopupApperanceProtocol = PopupApperance(),
+    /// 隐藏
+    /// - Parameters:
+    ///   - presented: 被弹出的视图
+    ///   - apperance: 弹出的动画代理，因为权限问题，默认为nil
+    ///   - completion: 弹出完成的回调
+    
+    public static func dismiss(_ presented: PopupProtocol,
+                        apperance: PopupApperanceProtocol? = nil,
                         completion:(()-> Void)? = nil) {
         
         let controller = self.init(apperance: apperance)
         let presentedViewController = presented.presentedViewController
         presentedViewController.transitioningDelegate = controller
-        presentedViewController.modalPresentationStyle = .custom        
+        presentedViewController.modalPresentationStyle = .custom
         presentedViewController.dismiss(animated: true, completion: completion)
     }
 }
