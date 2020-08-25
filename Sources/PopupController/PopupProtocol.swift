@@ -14,17 +14,15 @@ public protocol PopupProtocol: class {
     var presentedViewController: UIViewController { get }
 }
 
-
 extension PopupProtocol where Self: UIViewController {
-    var presentedViewController: UIViewController {
+    public var presentedViewController: UIViewController {
         return self
     }
 }
 
 
 extension PopupProtocol where Self: UIView {
-    
-    var presentedViewController: UIViewController {
+    public var presentedViewController: UIViewController {
         if let viewController = self.viewController() as? PopupProtocol {
             return viewController.presentedViewController
         } else {

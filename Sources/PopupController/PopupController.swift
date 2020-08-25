@@ -10,7 +10,7 @@
 
 import UIKit
 
-class PopupController: NSObject {
+public class PopupController: NSObject {
     
     private var apperance: PopupApperanceProtocol
     
@@ -18,7 +18,7 @@ class PopupController: NSObject {
         self.apperance = apperance
     }
     
-    public static func show(_ presented: PopupProtocol,
+    static func show(_ presented: PopupProtocol,
                      presentingViewController: UIViewController? = UIWindow.key?.rootViewController,
                      apperance: PopupApperanceProtocol = PopupApperance(),
                      completion:(()-> Void)? = nil) {
@@ -30,7 +30,7 @@ class PopupController: NSObject {
         presentingViewController?.present(presentedViewController, animated: true, completion: completion)
     }
     
-    public static func dismiss(_ presented: PopupProtocol,
+    static func dismiss(_ presented: PopupProtocol,
                         apperance: PopupApperanceProtocol = PopupApperance(),
                         completion:(()-> Void)? = nil) {
         
@@ -45,16 +45,16 @@ class PopupController: NSObject {
 
 extension PopupController: UIViewControllerTransitioningDelegate {
     
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let controller = PopupPresentationController(presentedViewController: presented, presenting: presenting)
         return controller
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return apperance.showAnimation
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return apperance.dismissAnimation
     }
 }
