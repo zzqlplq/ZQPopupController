@@ -15,27 +15,23 @@ public protocol PopupApperanceProtocol {
     var dismissAnimation: UIViewControllerAnimatedTransitioning? { get }
 }
 
+class PopupApperance: NSObject, PopupApperanceProtocol { }
 
-public extension PopupApperanceProtocol {
+extension PopupApperanceProtocol {
 
-    public var showAnimation: UIViewControllerAnimatedTransitioning? {
+    var showAnimation: UIViewControllerAnimatedTransitioning? {
         return PopupShowAnimation()
     }
 
-    public var dismissAnimation: UIViewControllerAnimatedTransitioning? {
+    var dismissAnimation: UIViewControllerAnimatedTransitioning? {
         return PopupDismissAnimation()
     }
 }
 
 
-public class PopupApperance:NSObject, PopupApperanceProtocol {
+class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransitioning {
 
-}
-
-
-fileprivate class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransitioning {
-
-    public var duration: TimeInterval = 0.3
+     var duration: TimeInterval = 0.3
         
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
@@ -50,7 +46,6 @@ fileprivate class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransiti
         containerView.addSubview(toView)
         
         toView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseInOut, animations: {
             toView.transform = .identity
         }) { (finish) in
@@ -60,9 +55,9 @@ fileprivate class PopupShowAnimation: NSObject, UIViewControllerAnimatedTransiti
 }
 
 
-fileprivate class PopupDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+class PopupDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
-    public var duration: TimeInterval = 0.2
+    var duration: TimeInterval = 0.2
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration

@@ -15,15 +15,15 @@ public protocol PopupProtocol: class {
 }
 
 
-public extension PopupProtocol where Self: UIViewController {
+extension PopupProtocol where Self: UIViewController {
     var presentedViewController: UIViewController {
         return self
     }
 }
 
 
-public extension PopupProtocol where Self: UIView {
-
+extension PopupProtocol where Self: UIView {
+    
     var presentedViewController: UIViewController {
         if let viewController = self.viewController() as? PopupProtocol {
             return viewController.presentedViewController
@@ -40,9 +40,9 @@ public extension PopupProtocol where Self: UIView {
 
 private class PopupTempContainerViewController: UIViewController, PopupProtocol {
     
-    var contentView: PopupProtocol
+    var contentView: UIView & PopupProtocol
     
-    init(contentView: PopupProtocol) {
+    init(contentView: UIView & PopupProtocol) {
         self.contentView = contentView
         super.init(nibName: nil, bundle: nil)
     }
@@ -57,18 +57,18 @@ private class PopupTempContainerViewController: UIViewController, PopupProtocol 
     }
     
     func setupContentView() {
-        if let contentView = self.contentView as? UIView  {
-            view.addSubview(contentView)
-            contentView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: self.contentView.offset.y).isActive = true
-            contentView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: self.contentView.offset.x).isActive = true
-            contentView.widthAnchor.constraint(equalToConstant: contentView.frame.size.width).isActive = true
-            contentView.heightAnchor.constraint(equalToConstant: contentView.frame.size.height).isActive = true
-        }
+        view.addSubview(self.contentView)
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: self.contentView.offset.y).isActive = true
+        self.contentView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: self.contentView.offset.x).isActive = true
+        self.contentView.widthAnchor.constraint(equalToConstant: self.contentView.frame.size.width).isActive = true
+        self.contentView.heightAnchor.constraint(equalToConstant: self.contentView.frame.size.height).isActive = true
     }
 }
 
-private extension UIView {
+
+extension UIView {
+    
     func viewController() -> UIViewController? {
         var next = self.next
         while next != nil {

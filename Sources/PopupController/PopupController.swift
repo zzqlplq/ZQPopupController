@@ -10,11 +10,11 @@
 
 import UIKit
 
-public class PopupController {
+final class PopupController: NSObject {
     
     private var apperance: PopupApperanceProtocol
-
-    private init(apperance: PopupApperanceProtocol) {
+    
+    required init(apperance: PopupApperanceProtocol) {
         self.apperance = apperance
     }
     
@@ -37,13 +37,13 @@ public class PopupController {
         let controller = self.init(apperance: apperance)
         let presentedViewController = presented.presentedViewController
         presentedViewController.transitioningDelegate = controller
-        presentedViewController.modalPresentationStyle = .custom
+        presentedViewController.modalPresentationStyle = .custom        
         presentedViewController.dismiss(animated: true, completion: completion)
     }
 }
 
 
-public extension PopupController: UIViewControllerTransitioningDelegate {
+extension PopupController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let controller = PopupPresentationController(presentedViewController: presented, presenting: presenting)
@@ -61,7 +61,7 @@ public extension PopupController: UIViewControllerTransitioningDelegate {
 
 
 extension UIWindow {
-    public static var key: UIWindow? {
+     static var key: UIWindow? {
         if #available(iOS 13, *) {
             return UIApplication.shared.windows.first { $0.isKeyWindow }
         } else {
