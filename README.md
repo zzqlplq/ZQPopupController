@@ -2,8 +2,6 @@
 
 view或者viewcontroller，只要遵循PopupProtocol代理，调用指定方法便可被弹出。弹出动画支持自定义
 
-##  Swift Package 有错误，正在修改
-
 
 ### 使用方法
 
@@ -29,3 +27,13 @@ PopupController.dismiss(self)
 4. 更多使用方法见demo
 
 
+### 其他
+
+支持 Swift Package Manager 导入
+
+
+### TODO
+
+1. 添加cocoapods支持
+2. 默认动画中添加fade支持
+3. 在当前目录中添加Demo
