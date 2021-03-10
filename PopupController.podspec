@@ -64,6 +64,7 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
+  spec.swift_version = "5.0"
 #   spec.platform     = :ios
 #   spec.platform     = :ios, "10.0"
 
@@ -80,7 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://github.com/zzqlplq/PopupController.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/zzqlplq/PopupController.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
