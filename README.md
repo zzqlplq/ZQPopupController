@@ -34,6 +34,6 @@ PopupController.dismiss(self)
 
 ### TODO
 
-- [ ] 添加cocoapods支持
-- [ ] 默认动画中添加fade支持
+- [x] 添加cocoapods支持
+- [x] 默认动画中添加fade支持
 - [x] 在当前目录中添加Demo 
