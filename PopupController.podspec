@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                         弹出视图控制器，可以指定弹出的动画和位置
                    DESC
 
-  spec.homepage     = "http://github.com/zzqlplq/PopupController"
+  spec.homepage     = "https://github.com/zzqlplq/PopupController"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
