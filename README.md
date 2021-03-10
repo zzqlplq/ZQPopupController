@@ -24,7 +24,26 @@ PopupController.show(testVC)
 PopupController.dismiss(self)
 ```
 
-4. 更多使用方法见demo
+4. 自定义动画遵循 PopupAnimatorProtocal代理
+
+```
+class Animation: PopupAnimatorProtocal  {
+    
+    var showAnimation: UIViewControllerAnimatedTransitioning? { 
+        retrun xxx
+        }
+    
+    var dismissAnimation: UIViewControllerAnimatedTransitioning? { 
+        return xxx
+        }
+}
+
+let animation = Animation()
+PopupController.show(testVC, animation:animation)
+
+```
+
+4. 其他参数配置见Demo
 
 
 ### 其他
