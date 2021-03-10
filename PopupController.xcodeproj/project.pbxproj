@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		OBJ_24 /* PopupApperanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* PopupApperanceProtocol.swift */; };
+		1D3DFDE925F7733E0011242F /* PopupAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFDE825F7733E0011242F /* PopupAnimation.swift */; };
 		OBJ_25 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* PopupController.swift */; };
 		OBJ_26 /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* PopupPresentationController.swift */; };
 		OBJ_27 /* PopupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* PopupProtocol.swift */; };
@@ -15,14 +15,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D3DFDE825F7733E0011242F /* PopupAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAnimation.swift; sourceTree = "<group>"; };
 		OBJ_10 /* PopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		OBJ_11 /* PopupPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPresentationController.swift; sourceTree = "<group>"; };
 		OBJ_12 /* PopupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupProtocol.swift; sourceTree = "<group>"; };
-		OBJ_16 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo; sourceTree = SOURCE_ROOT; };
 		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* PopupApperanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupApperanceProtocol.swift; sourceTree = "<group>"; };
 		"PopupController::PopupController::Product" /* PopupController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PopupController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,7 +58,6 @@
 				OBJ_7 /* Sources */,
 				OBJ_13 /* Tests */,
 				OBJ_14 /* Products */,
-				OBJ_16 /* Demo */,
 				OBJ_17 /* LICENSE */,
 				OBJ_18 /* README.md */,
 			);
@@ -76,10 +74,10 @@
 		OBJ_8 /* PopupController */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* PopupApperanceProtocol.swift */,
 				OBJ_11 /* PopupPresentationController.swift */,
 				OBJ_10 /* PopupController.swift */,
 				OBJ_12 /* PopupProtocol.swift */,
+				1D3DFDE825F7733E0011242F /* PopupAnimation.swift */,
 			);
 			path = PopupController;
 			sourceTree = "<group>";
@@ -149,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_24 /* PopupApperanceProtocol.swift in Sources */,
+				1D3DFDE925F7733E0011242F /* PopupAnimation.swift in Sources */,
 				OBJ_25 /* PopupController.swift in Sources */,
 				OBJ_26 /* PopupPresentationController.swift in Sources */,
 				OBJ_27 /* PopupProtocol.swift in Sources */,

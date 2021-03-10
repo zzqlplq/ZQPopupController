@@ -11,47 +11,49 @@
 import UIKit
 
 public class PopupController: NSObject {
-    
-    private var apperance: PopupApperanceProtocol = PopupApperance()
-    
-    required init(apperance: PopupApperanceProtocol?) {
-        if let apperance = apperance {
-            self.apperance = apperance
-        }
+        
+    private var animator: PopupAnimatorProtocal
+        
+    private init (animator: PopupAnimatorProtocal) {
+        self.animator = animator
+    }
+        
+    static func show(_ presented: PopupProtocol,
+                     animationType: PopupAnimationType = .scale,
+                     presentingViewController: UIViewController? = nil,
+                     completion:(()-> Void)? = nil) {
+               
+        let animator = PopupAnimator(type: animationType)
+        PopupController.show(presented, animation: animator, presentingViewController: presentingViewController, completion: completion)
     }
     
-    /// 显示
-    /// - Parameters:
-    ///   - presented: 被弹出的视图
-    ///   - presentingViewController: 主动弹出的控制器，因为权限问题，默认为nil
-    ///   - apperance: 弹出的动画代理，因为权限问题，默认为nil
-    ///   - completion: 弹出完成的回调
     
-    public static func show(_ presented: PopupProtocol,
-                     presentingViewController: UIViewController? = nil,
-                     apperance: PopupApperanceProtocol? = nil,
-                     completion:(()-> Void)? = nil) {
+    static func show(_ presented: PopupProtocol, animation: PopupAnimatorProtocal, presentingViewController: UIViewController? = nil, completion:(()-> Void)? = nil) {
         
-        let controller = self.init(apperance: apperance)
+        let controller = PopupController(animator: animation)
         let presentedViewController =  presented.presentedViewController
         presentedViewController.transitioningDelegate = controller
         presentedViewController.modalPresentationStyle = .custom
-        
+
         let presenting = presentingViewController ?? UIWindow.key?.rootViewController
         presenting?.present(presentedViewController, animated: true, completion: completion)
     }
     
-    /// 隐藏
-    /// - Parameters:
-    ///   - presented: 被弹出的视图
-    ///   - apperance: 弹出的动画代理，因为权限问题，默认为nil
-    ///   - completion: 弹出完成的回调
     
     public static func dismiss(_ presented: PopupProtocol,
-                        apperance: PopupApperanceProtocol? = nil,
-                        completion:(()-> Void)? = nil) {
+                               animationType: PopupAnimationType = .scale,
+                               completion:(()-> Void)? = nil) {
         
-        let controller = self.init(apperance: apperance)
+        let animator = PopupAnimator(type: animationType)
+        PopupController.dismiss(presented, animation: animator, completion: completion)
+    }
+    
+    
+    public static func dismiss(_ presented: PopupProtocol,
+                               animation: PopupAnimatorProtocal,
+                               completion:(()-> Void)? = nil) {
+    
+        let controller = PopupController(animator: animation)
         let presentedViewController = presented.presentedViewController
         presentedViewController.transitioningDelegate = controller
         presentedViewController.modalPresentationStyle = .custom
@@ -68,11 +70,11 @@ extension PopupController: UIViewControllerTransitioningDelegate {
     }
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return apperance.showAnimation
+        return animator.showAnimation
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return apperance.dismissAnimation
+        return animator.dismissAnimation
     }
 }
 
