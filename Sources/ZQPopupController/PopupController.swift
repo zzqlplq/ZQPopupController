@@ -18,7 +18,7 @@ public class PopupController: NSObject {
         self.animator = animator
     }
         
-    static func show(_ presented: PopupProtocol,
+    public static func show(_ presented: PopupProtocol,
                      animationType: PopupAnimationType = .scale,
                      presentingViewController: UIViewController? = nil,
                      completion:(()-> Void)? = nil) {
@@ -28,7 +28,7 @@ public class PopupController: NSObject {
     }
     
     
-    static func show(_ presented: PopupProtocol, animation: PopupAnimatorProtocal, presentingViewController: UIViewController? = nil, completion:(()-> Void)? = nil) {
+    public  static func show(_ presented: PopupProtocol, animation: PopupAnimatorProtocal, presentingViewController: UIViewController? = nil, completion:(()-> Void)? = nil) {
         
         let controller = PopupController(animator: animation)
         let presentedViewController =  presented.presentedViewController
