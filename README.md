@@ -15,13 +15,13 @@ class TestViewController: UIViewController, PopupProtocol
 
 ```
 let testVC = TestViewController()
-ZQPopupController.show(testVC)
+PopupController.show(testVC)
 ```
 
 3. 需要移除的时候调用dismiss方法
 
 ```
-ZQPopupController.dismiss(self)
+PopupController.dismiss(self)
 ```
 
 4. 自定义动画遵循 PopupAnimatorProtocal代理
@@ -39,7 +39,7 @@ class Animation: PopupAnimatorProtocal  {
 }
 
 let animation = Animation()
-ZQPopupController.show(testVC, animation:animation)
+PopupController.show(testVC, animation:animation)
 
 ```
 
@@ -53,6 +53,6 @@ ZQPopupController.show(testVC, animation:animation)
 
 ### TODO
 
-- [x] 添加cocoapods支持
+- [] 添加cocoapods支持
 - [x] 默认动画中添加fade支持
 - [x] 在当前目录中添加Demo 
