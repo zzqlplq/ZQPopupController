@@ -22,7 +22,7 @@
 		OBJ_17 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		"PopupController::PopupController::Product" /* PopupController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PopupController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ZQPopupController::ZQPopupController::Product" /* ZQPopupController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZQPopupController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		OBJ_14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"PopupController::PopupController::Product" /* PopupController.framework */,
+				"ZQPopupController::ZQPopupController::Product" /* ZQPopupController.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -66,12 +66,12 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* PopupController */,
+				OBJ_8 /* ZQPopupController */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_8 /* PopupController */ = {
+		OBJ_8 /* ZQPopupController */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_11 /* PopupPresentationController.swift */,
@@ -79,15 +79,15 @@
 				OBJ_12 /* PopupProtocol.swift */,
 				1D3DFDE825F7733E0011242F /* PopupAnimation.swift */,
 			);
-			path = PopupController;
+			path = ZQPopupController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		"PopupController::PopupController" /* PopupController */ = {
+		"ZQPopupController::ZQPopupController" /* ZQPopupController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_20 /* Build configuration list for PBXNativeTarget "PopupController" */;
+			buildConfigurationList = OBJ_20 /* Build configuration list for PBXNativeTarget "ZQPopupController" */;
 			buildPhases = (
 				OBJ_23 /* Sources */,
 				OBJ_28 /* Frameworks */,
@@ -96,14 +96,14 @@
 			);
 			dependencies = (
 			);
-			name = PopupController;
-			productName = PopupController;
-			productReference = "PopupController::PopupController::Product" /* PopupController.framework */;
+			name = ZQPopupController;
+			productName = ZQPopupController;
+			productReference = "ZQPopupController::ZQPopupController::Product" /* ZQPopupController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"PopupController::SwiftPMPackageDescription" /* PopupControllerPackageDescription */ = {
+		"ZQPopupController::SwiftPMPackageDescription" /* ZQPopupControllerPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_30 /* Build configuration list for PBXNativeTarget "PopupControllerPackageDescription" */;
+			buildConfigurationList = OBJ_30 /* Build configuration list for PBXNativeTarget "ZQPopupControllerPackageDescription" */;
 			buildPhases = (
 				OBJ_33 /* Sources */,
 			);
@@ -111,7 +111,7 @@
 			);
 			dependencies = (
 			);
-			name = PopupControllerPackageDescription;
+			name = ZQPopupControllerPackageDescription;
 			productName = PopupControllerPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
@@ -124,7 +124,7 @@
 				LastSwiftMigration = 9999;
 				LastUpgradeCheck = 9999;
 			};
-			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "PopupController" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "ZQPopupController" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,8 +136,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"PopupController::PopupController" /* PopupController */,
-				"PopupController::SwiftPMPackageDescription" /* PopupControllerPackageDescription */,
+				"ZQPopupController::ZQPopupController" /* ZQPopupController */,
+				"ZQPopupController::SwiftPMPackageDescription" /* ZQPopupControllerPackageDescription */,
 			);
 		};
 /* End PBXProject section */
@@ -174,7 +174,7 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = PopupController.xcodeproj/PopupController_Info.plist;
+				INFOPLIST_FILE = ZQPopupController.xcodeproj/PopupController_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -182,13 +182,13 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = PopupController;
+				PRODUCT_BUNDLE_IDENTIFIER = ZQPopupController;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
-				TARGET_NAME = PopupController;
+				TARGET_NAME = ZQPopupController;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -203,7 +203,7 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = PopupController.xcodeproj/PopupController_Info.plist;
+				INFOPLIST_FILE = ZQPopupController.xcodeproj/PopupController_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -211,13 +211,13 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = PopupController;
+				PRODUCT_BUNDLE_IDENTIFIER = ZQPopupController;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
-				TARGET_NAME = PopupController;
+				TARGET_NAME = ZQPopupController;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -255,6 +255,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.2.0";
+				PRODUCT_NAME = ZQPopupControllerPackageDescription;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -264,6 +265,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.2.0";
+				PRODUCT_NAME = ZQPopupControllerPackageDescription;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -295,7 +297,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_2 /* Build configuration list for PBXProject "PopupController" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "ZQPopupController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_3 /* Debug */,
@@ -304,7 +306,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_20 /* Build configuration list for PBXNativeTarget "PopupController" */ = {
+		OBJ_20 /* Build configuration list for PBXNativeTarget "ZQPopupController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_21 /* Debug */,
@@ -313,7 +315,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_30 /* Build configuration list for PBXNativeTarget "PopupControllerPackageDescription" */ = {
+		OBJ_30 /* Build configuration list for PBXNativeTarget "ZQPopupControllerPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_31 /* Debug */,

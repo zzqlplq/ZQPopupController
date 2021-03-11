@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Demo/PopupControllerDemo/PopupControllerDemo.xcodeproj">
+      location = "group:ZQPopupController.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:PopupController.xcodeproj">
+      location = "group:Demo/PopupControllerDemo/PopupControllerDemo.xcodeproj">
    </FileRef>
 </Workspace>

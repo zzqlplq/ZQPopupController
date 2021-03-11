@@ -1,4 +1,4 @@
-# PopupController
+# ZQPopupController
 
 view或者viewcontroller，只要遵循PopupProtocol代理，调用指定方法便可被弹出。弹出动画支持自定义
 
@@ -15,13 +15,13 @@ class TestViewController: UIViewController, PopupProtocol
 
 ```
 let testVC = TestViewController()
-PopupController.show(testVC)
+ZQPopupController.show(testVC)
 ```
 
 3. 需要移除的时候调用dismiss方法
 
 ```
-PopupController.dismiss(self)
+ZQPopupController.dismiss(self)
 ```
 
 4. 自定义动画遵循 PopupAnimatorProtocal代理
@@ -39,7 +39,7 @@ class Animation: PopupAnimatorProtocal  {
 }
 
 let animation = Animation()
-PopupController.show(testVC, animation:animation)
+ZQPopupController.show(testVC, animation:animation)
 
 ```
 

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PopupController::PopupController"
-               BuildableName = "PopupController.framework"
-               BlueprintName = "PopupController"
-               ReferencedContainer = "container:PopupController.xcodeproj">
+               BlueprintIdentifier = "ZQPopupController::ZQPopupController"
+               BuildableName = "ZQPopupController.framework"
+               BlueprintName = "ZQPopupController"
+               ReferencedContainer = "container:ZQPopupController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

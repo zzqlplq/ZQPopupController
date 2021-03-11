@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "PopupController",
+    name: "ZQPopupController",
     platforms: [.iOS(.v10)],
     products: [
         .library(
-            name: "PopupController",
-            targets: ["PopupController"]),
+            name: "ZQPopupController",
+            targets: ["ZQPopupController"]),
     ],
     targets: [
         .target(
-            name: "PopupController",
+            name: "ZQPopupController",
             path: "Sources",
-            sources: ["PopupController"]
+            sources: ["ZQPopupController"]
         ),
     ]
 )

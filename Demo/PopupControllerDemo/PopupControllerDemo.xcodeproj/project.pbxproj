@@ -13,11 +13,11 @@
 		1D3DFD8525F407530011242F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3DFD8325F407530011242F /* Main.storyboard */; };
 		1D3DFD8725F407550011242F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3DFD8625F407550011242F /* Assets.xcassets */; };
 		1D3DFD8A25F407550011242F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D3DFD8825F407550011242F /* LaunchScreen.storyboard */; };
-		1D3DFDC625F408430011242F /* PopupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFDC225F408430011242F /* PopupProtocol.swift */; };
-		1D3DFDC825F408430011242F /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFDC425F408430011242F /* PopupController.swift */; };
-		1D3DFDC925F408430011242F /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFDC525F408430011242F /* PopupPresentationController.swift */; };
 		1D3DFDCE25F409EC0011242F /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFDCD25F409EC0011242F /* PresentedViewController.swift */; };
-		1D3DFDF025F7734C0011242F /* PopupAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3DFDEF25F7734C0011242F /* PopupAnimation.swift */; };
+		1D7C748F25F9F1670082639F /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C748B25F9F1660082639F /* PopupPresentationController.swift */; };
+		1D7C749025F9F1670082639F /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C748C25F9F1660082639F /* PopupController.swift */; };
+		1D7C749125F9F1670082639F /* PopupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C748D25F9F1660082639F /* PopupProtocol.swift */; };
+		1D7C749225F9F1670082639F /* PopupAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C748E25F9F1670082639F /* PopupAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +48,11 @@
 		1D3DFD8B25F407550011242F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D3DFD9025F407550011242F /* PopupControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3DFD9B25F407550011242F /* PopupControllerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopupControllerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D3DFDC225F408430011242F /* PopupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupProtocol.swift; path = ../../../Sources/PopupController/PopupProtocol.swift; sourceTree = "<group>"; };
-		1D3DFDC425F408430011242F /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupController.swift; path = ../../../Sources/PopupController/PopupController.swift; sourceTree = "<group>"; };
-		1D3DFDC525F408430011242F /* PopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupPresentationController.swift; path = ../../../Sources/PopupController/PopupPresentationController.swift; sourceTree = "<group>"; };
 		1D3DFDCD25F409EC0011242F /* PresentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
-		1D3DFDEF25F7734C0011242F /* PopupAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupAnimation.swift; path = ../../../Sources/PopupController/PopupAnimation.swift; sourceTree = "<group>"; };
+		1D7C748B25F9F1660082639F /* PopupPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupPresentationController.swift; path = ../../../Sources/ZQPopupController/PopupPresentationController.swift; sourceTree = "<group>"; };
+		1D7C748C25F9F1660082639F /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupController.swift; path = ../../../Sources/ZQPopupController/PopupController.swift; sourceTree = "<group>"; };
+		1D7C748D25F9F1660082639F /* PopupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupProtocol.swift; path = ../../../Sources/ZQPopupController/PopupProtocol.swift; sourceTree = "<group>"; };
+		1D7C748E25F9F1670082639F /* PopupAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupAnimation.swift; path = ../../../Sources/ZQPopupController/PopupAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		1D3DFD7C25F407530011242F /* PopupControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				1D3DFDC125F407ED0011242F /* PopupController */,
+				1D3DFDC125F407ED0011242F /* ZQPopupController */,
 				1D3DFD7D25F407530011242F /* AppDelegate.swift */,
 				1D3DFD7F25F407530011242F /* SceneDelegate.swift */,
 				1D3DFD8125F407530011242F /* ViewController.swift */,
@@ -114,15 +114,15 @@
 			path = PopupControllerDemo;
 			sourceTree = "<group>";
 		};
-		1D3DFDC125F407ED0011242F /* PopupController */ = {
+		1D3DFDC125F407ED0011242F /* ZQPopupController */ = {
 			isa = PBXGroup;
 			children = (
-				1D3DFDEF25F7734C0011242F /* PopupAnimation.swift */,
-				1D3DFDC425F408430011242F /* PopupController.swift */,
-				1D3DFDC525F408430011242F /* PopupPresentationController.swift */,
-				1D3DFDC225F408430011242F /* PopupProtocol.swift */,
+				1D7C748B25F9F1660082639F /* PopupPresentationController.swift */,
+				1D7C748E25F9F1670082639F /* PopupAnimation.swift */,
+				1D7C748C25F9F1660082639F /* PopupController.swift */,
+				1D7C748D25F9F1660082639F /* PopupProtocol.swift */,
 			);
-			name = PopupController;
+			name = ZQPopupController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,14 +255,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D7C749125F9F1670082639F /* PopupProtocol.swift in Sources */,
 				1D3DFDCE25F409EC0011242F /* PresentedViewController.swift in Sources */,
-				1D3DFDC625F408430011242F /* PopupProtocol.swift in Sources */,
 				1D3DFD8225F407530011242F /* ViewController.swift in Sources */,
+				1D7C749225F9F1670082639F /* PopupAnimation.swift in Sources */,
 				1D3DFD7E25F407530011242F /* AppDelegate.swift in Sources */,
-				1D3DFDC825F408430011242F /* PopupController.swift in Sources */,
-				1D3DFDF025F7734C0011242F /* PopupAnimation.swift in Sources */,
 				1D3DFD8025F407530011242F /* SceneDelegate.swift in Sources */,
-				1D3DFDC925F408430011242F /* PopupPresentationController.swift in Sources */,
+				1D7C749025F9F1670082639F /* PopupController.swift in Sources */,
+				1D7C748F25F9F1670082639F /* PopupPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
