@@ -15,6 +15,7 @@ public protocol PopupAnimatorProtocal {
 
 
 public enum PopupAnimationType {
+    case none
     case fade
     case scale
     case moveIn
@@ -29,7 +30,7 @@ class PopupAnimator: NSObject, PopupAnimatorProtocal {
     
     required init(type: PopupAnimationType) {
         self.type = type
-        self.duration = 0.3
+        self.duration = type == .none ? 0.01 : 0.3
     }
     
     init(type: PopupAnimationType, duration: TimeInterval) {
@@ -76,7 +77,7 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         case .moveIn:
             toView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
-        case .moveOut: break
+        case .moveOut, .none: break
         }
         
         UIView.animate(withDuration: self.duration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseInOut) {
@@ -86,7 +87,7 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 toView.transform = .identity
             case .fade:
                 toView.alpha = 1
-            case .moveOut: break
+            case .moveOut, .none: break
             }
         } completion: { finished in
             transitionContext.completeTransition(finished)
@@ -122,7 +123,7 @@ class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 fromView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             case .moveOut:
                 fromView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
-            case .moveIn: break
+            case .moveIn, .none: break
             }
         } completion: { finished in
             transitionContext.completeTransition(finished)

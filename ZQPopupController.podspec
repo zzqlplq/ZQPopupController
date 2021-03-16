@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                         弹出视图控制器，可以指定弹出的动画和位置
                    DESC
 
-  spec.homepage     = "https://github.com/zzqlplq/PopupController"
+  spec.homepage     = "https://github.com/zzqlplq/ZQPopupController"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -81,7 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/zzqlplq/PopupController.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/zzqlplq/ZQPopupController.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Sources/PopupController/*.swift"
+  spec.source_files  = "Sources/ZQPopupController/*.swift"
 #   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"

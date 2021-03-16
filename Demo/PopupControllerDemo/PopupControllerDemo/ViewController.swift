@@ -21,7 +21,7 @@ class CellModel {
 
 extension PopupAnimationType: CaseIterable {
     public static var allCases: [PopupAnimationType] {
-        return [.fade, .scale, .moveIn]
+        return [.fade, .scale, .moveIn, .none]
     }
 }
 
