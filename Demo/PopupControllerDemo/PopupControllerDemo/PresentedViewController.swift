@@ -8,8 +8,6 @@
 import UIKit
 
 class PresentedViewController: UIViewController, PopupProtocol {
-
-    var animationType: PopupAnimationType!
   
     override func viewDidLoad() {
                 
@@ -28,7 +26,7 @@ class PresentedViewController: UIViewController, PopupProtocol {
     }
     
     @IBAction func btnClick(_ sender: Any) {
-        PopupController.dismiss(self, animationType: self.animationType)
+        PopupController.dismiss(self, animationType: .fade)
     }
 
 }

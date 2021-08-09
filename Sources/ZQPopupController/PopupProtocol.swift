@@ -10,17 +10,13 @@
 
 import UIKit
 
-public protocol PopupProtocol: class {
+public protocol PopupProtocol: AnyObject {
     var presentedViewController: UIViewController { get }
-    var offset: CGPoint { get }
 }
 
 extension PopupProtocol where Self: UIViewController {
     public var presentedViewController: UIViewController {
         return self
-    }
-    public var offset: CGPoint {
-        return CGPoint(x: 0, y: 0)
     }
 }
 

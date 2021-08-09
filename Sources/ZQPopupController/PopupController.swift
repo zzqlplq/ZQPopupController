@@ -12,26 +12,25 @@ import UIKit
 
 public class PopupController: NSObject {
         
-    private var animator: PopupAnimatorProtocal
+    private let animator: PopupAnimationProtocol
         
-    private init (animator: PopupAnimatorProtocal) {
+    private init (animator: PopupAnimationProtocol) {
         self.animator = animator
     }
         
     public static func show(_ presented: PopupProtocol,
-                     animationType: PopupAnimationType = .scale,
-                     presentingViewController: UIViewController? = nil,
-                     completion:(()-> Void)? = nil) {
-               
-        let animator = PopupAnimator(type: animationType)
+                            animationType: PopupShowAnimator = .fade,
+                            presentingViewController: UIViewController? = nil,
+                            completion:(()-> Void)? = nil) {
+        let animator = PopupShowAnimator(rawValue: animationType)
         PopupController.show(presented, animation: animator, presentingViewController: presentingViewController, completion: completion)
     }
     
     
-    public  static func show(_ presented: PopupProtocol, animation: PopupAnimatorProtocal, presentingViewController: UIViewController? = nil, completion:(()-> Void)? = nil) {
+    public  static func show(_ presented: PopupProtocol, animation: PopupAnimationProtocol, presentingViewController: UIViewController? = nil, completion:(()-> Void)? = nil) {
         
         let controller = PopupController(animator: animation)
-        let presentedViewController =  presented.presentedViewController
+        let presentedViewController = presented.presentedViewController
         presentedViewController.transitioningDelegate = controller
         presentedViewController.modalPresentationStyle = .custom
 
@@ -41,16 +40,16 @@ public class PopupController: NSObject {
     
     
     public static func dismiss(_ presented: PopupProtocol,
-                               animationType: PopupAnimationType = .scale,
+                               animationType: PopupDismissAnimator = .fade,
                                completion:(()-> Void)? = nil) {
         
-        let animator = PopupAnimator(type: animationType)
+        let animator = PopupDismissAnimator(rawValue: animationType)
         PopupController.dismiss(presented, animation: animator, completion: completion)
     }
     
     
     public static func dismiss(_ presented: PopupProtocol,
-                               animation: PopupAnimatorProtocal,
+                               animation: PopupAnimationProtocol,
                                completion:(()-> Void)? = nil) {
     
         let controller = PopupController(animator: animation)
@@ -70,11 +69,11 @@ extension PopupController: UIViewControllerTransitioningDelegate {
     }
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return animator.showAnimation
+        return animator.animation
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return animator.dismissAnimation
+        return animator.animation
     }
 }
 

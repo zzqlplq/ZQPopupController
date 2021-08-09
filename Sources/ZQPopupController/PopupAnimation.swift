@@ -8,53 +8,75 @@
 
 import UIKit
 
-public protocol PopupAnimatorProtocal {
-    var showAnimation: UIViewControllerAnimatedTransitioning? { get }
-    var dismissAnimation: UIViewControllerAnimatedTransitioning? { get }
+public protocol PopupAnimationProtocol {
+    var animation: UIViewControllerAnimatedTransitioning? { get }
 }
 
 
-public enum PopupAnimationType {
-    case none
-    case fade
-    case scale
-    case moveIn
-    case moveOut
-}
-
-
-class PopupAnimator: NSObject, PopupAnimatorProtocal {
-    
-    var type: PopupAnimationType
-    var duration: TimeInterval
-    
-    required init(type: PopupAnimationType) {
-        self.type = type
-        self.duration = type == .none ? 0.01 : 0.3
+extension PopupAnimationProtocol where Self: UIViewControllerAnimatedTransitioning {
+    var animation: UIViewControllerAnimatedTransitioning? {
+        return self
     }
+}
+
+
+class NoneShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    init(type: PopupAnimationType, duration: TimeInterval) {
-        self.type = type
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.01
+    }
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let toVC = transitionContext.viewController(forKey: .to), let toView = transitionContext.view(forKey: .to) else { return }
+
+        let containerView = transitionContext.containerView
+        toView.frame = transitionContext.finalFrame(for: toVC)
+        containerView.addSubview(toView)
+        UIView.animate(withDuration: 0.01, animations: {}) { finished  in
+            transitionContext.completeTransition(finished)
+        }
+    }
+}
+
+
+class ScaleShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+   
+    let duration: TimeInterval
+    
+    init(_ duration: TimeInterval = 0.3) {
         self.duration = duration
     }
     
-    var showAnimation: UIViewControllerAnimatedTransitioning? {
-        return ShowAnimator(type: self.type, duration: self.duration)
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return self.duration
     }
-    
-    var dismissAnimation: UIViewControllerAnimatedTransitioning? {
-        return DismissAnimator(type: self.type, duration: self.duration)
+
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+                
+        guard let toVC = transitionContext.viewController(forKey: .to), let toView = transitionContext.view(forKey: .to) else { return }
+
+        let containerView = transitionContext.containerView
+        toView.frame = transitionContext.finalFrame(for: toVC)
+        containerView.addSubview(toView)
+        toView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+
+        UIView.animate(withDuration: self.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 2,
+                       options: .curveEaseInOut) {
+            toView.transform = .identity
+        } completion: { finished in
+            transitionContext.completeTransition(finished)
+        }
     }
 }
 
 
-class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-   
-    var type: PopupAnimationType
-    var duration: TimeInterval
+class FadeShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    required init(type: PopupAnimationType, duration: TimeInterval) {
-        self.type = type
+    let duration: TimeInterval
+    
+    init(_ duration: TimeInterval = 0.3) {
         self.duration = duration
     }
     
@@ -63,32 +85,54 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-     
+        
+        guard let toVC = transitionContext.viewController(forKey: .to), let toView = transitionContext.view(forKey: .to) else { return }
+        
+        let containerView = transitionContext.containerView
+        toView.frame = transitionContext.finalFrame(for: toVC)
+        toView.alpha = 0
+        containerView.addSubview(toView)
+
+        UIView.animate(withDuration: self.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 2,
+                       options: .curveEaseInOut) {
+            toView.alpha = 1
+        } completion: { finished in
+            transitionContext.completeTransition(finished)
+        }
+
+    }
+}
+
+
+class MoveInAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    let duration: TimeInterval
+    init(_ duration: TimeInterval = 0.3) {
+        self.duration = duration
+    }
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return self.duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
         guard let toVC = transitionContext.viewController(forKey: .to), let toView = transitionContext.view(forKey: .to) else { return }
         
         let containerView = transitionContext.containerView
         toView.frame = transitionContext.finalFrame(for: toVC)
         containerView.addSubview(toView)
-                
-        switch self.type {
-        case .fade:
-            toView.alpha = 0
-        case .scale:
-            toView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        case .moveIn:
-            toView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
-        case .moveOut, .none: break
-        }
-        
-        UIView.animate(withDuration: self.duration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseInOut) {
-            
-            switch self.type {
-            case .scale, .moveIn:
-                toView.transform = .identity
-            case .fade:
-                toView.alpha = 1
-            case .moveOut, .none: break
-            }
+        toView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
+
+        UIView.animate(withDuration: self.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 2,
+                       options: .curveEaseInOut) {
+            toView.transform = .identity
         } completion: { finished in
             transitionContext.completeTransition(finished)
         }
@@ -96,13 +140,53 @@ class ShowAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 
-class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class NoneDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.01
+    }
     
-    var type: PopupAnimationType
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard (transitionContext.view(forKey: .from)) != nil else { return }
+        UIView.animate(withDuration: 0.01, animations: {}) { finished  in
+            transitionContext.completeTransition(finished)
+        }
+    }
+}
+
+
+class ScaleDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
     var duration: TimeInterval
+    init(duration: TimeInterval = 0.2) {
+        self.duration = duration
+    }
     
-    required init(type: PopupAnimationType, duration: TimeInterval) {
-        self.type = type
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return self.duration
+    }
+
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard let fromView = transitionContext.view(forKey: .from) else { return }
+
+        UIView.animate(withDuration: self.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 2.0,
+                       options: .curveEaseInOut) {
+            
+            fromView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+            
+        } completion: { finished in
+            transitionContext.completeTransition(finished)
+        }    }
+}
+
+
+class FadeDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    var duration: TimeInterval
+    init(duration: TimeInterval = 0.2) {
         self.duration = duration
     }
     
@@ -114,24 +198,97 @@ class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         guard let fromView = transitionContext.view(forKey: .from) else { return }
 
-        UIView.animate(withDuration: self.duration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseInOut) {
-         
-            switch self.type {
-            case .fade:
-                fromView.alpha = 0
-            case .scale:
-                fromView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-            case .moveOut:
-                fromView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
-            case .moveIn, .none: break
-            }
+        UIView.animate(withDuration: self.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 2.0,
+                       options: .curveEaseInOut) {
+
+            fromView.alpha = 0
+
         } completion: { finished in
             transitionContext.completeTransition(finished)
         }
     }
-
 }
 
+
+class MoveOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+
+    var duration: TimeInterval
+    init(duration: TimeInterval = 0.2) {
+        self.duration = duration
+    }
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+       return self.duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard let fromView = transitionContext.view(forKey: .from) else { return }
+
+        UIView.animate(withDuration: self.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 2.0,
+                       options: .curveEaseInOut) {
+                fromView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
+        } completion: { finished in
+            transitionContext.completeTransition(finished)
+        }
+    }
+}
+
+
+extension NoneShowAnimator: PopupAnimationProtocol { }
+extension ScaleShowAnimator: PopupAnimationProtocol { }
+extension FadeShowAnimator: PopupAnimationProtocol { }
+extension MoveInAnimator: PopupAnimationProtocol { }
+extension NoneDismissAnimator: PopupAnimationProtocol { }
+extension ScaleDismissAnimator: PopupAnimationProtocol { }
+extension FadeDismissAnimator: PopupAnimationProtocol { }
+extension MoveOutAnimator: PopupAnimationProtocol { }
+
+
+ public struct PopupShowAnimator: RawRepresentable {
+
+    public static let none = PopupShowAnimator(rawValue: NoneShowAnimator())
+    public static let fade = PopupShowAnimator(rawValue: FadeShowAnimator())
+    public static let sacle = PopupShowAnimator(rawValue: ScaleShowAnimator())
+    public static let moveIn = PopupShowAnimator(rawValue: MoveInAnimator())
+    
+    public var rawValue: PopupAnimationProtocol
+    public init (rawValue: PopupAnimationProtocol) {
+        self.rawValue = rawValue
+    }
+}
+
+extension PopupShowAnimator: PopupAnimationProtocol {
+    public var animation: UIViewControllerAnimatedTransitioning? {
+        return rawValue.animation
+    }
+}
+
+public struct PopupDismissAnimator: RawRepresentable {
+    
+    public static let none = PopupDismissAnimator(rawValue: NoneDismissAnimator())
+    public static let fade = PopupDismissAnimator(rawValue: FadeDismissAnimator())
+    public static let sacle = PopupDismissAnimator(rawValue: ScaleDismissAnimator())
+    public static let moveOut = PopupDismissAnimator(rawValue: MoveOutAnimator())
+    
+    public var rawValue: PopupAnimationProtocol
+    public init (rawValue: PopupAnimationProtocol) {
+        self.rawValue = rawValue
+    }
+}
+
+
+extension PopupDismissAnimator: PopupAnimationProtocol {
+    public var animation: UIViewControllerAnimatedTransitioning? {
+        return rawValue.animation
+    }
+}
 
 
 
