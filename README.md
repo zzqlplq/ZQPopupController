@@ -24,22 +24,23 @@ PopupController.show(testVC)
 PopupController.dismiss(self)
 ```
 
-4. 自定义动画遵循 PopupAnimatorProtocal代理
+4. 自定义动画遵循 UIViewControllerAnimatedTransitioning 和 PopupAnimationProtocol 代理
 
 ```
-class Animation: PopupAnimatorProtocal  {
+class Animator: NSObject, UIViewControllerAnimatedTransitioning  {
     
-    var showAnimation: UIViewControllerAnimatedTransitioning? { 
-        retrun xxx
-        }
+   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.01
+    }
     
-    var dismissAnimation: UIViewControllerAnimatedTransitioning? { 
-        return xxx
-        }
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+      //xxx  具体动画细节
+    }
 }
+extension Animator: PopupAnimationProtocol { }
 
-let animation = Animation()
-PopupController.show(testVC, animation:animation)
+let anim = Animator()
+PopupController.show(testVC, animation:anim)
 
 ```
 
